@@ -5,8 +5,8 @@ import time  # Importa biblioteca para funções de tempo
 import network  # Importa biblioteca para conexão Wi-Fi
 
 # Define a rede Wi-Fi
-ssid = "NOME_DA_REDE"
-senha = "SENHA_DA_REDE"
+ssid = "Wokwi-GUEST"
+senha = ""
 
 # Define o pino de dados conectado ao sensor DS18B20
 pino_dado = machine.Pin(5)
@@ -18,26 +18,24 @@ def conectar_wifi(ssid, senha):
   """
    Conecta o ESP32 a uma rede Wi-Fi.
   """
-  # Cria um objeto WLAN
+  print("Conectando-se ao WiFi", end=" ")
   wifi = network.WLAN(network.STA_IF)
-  # Ativa a interface Wi-Fi
   wifi.active(True)
-  # Conecta à rede Wi-Fi
-  wifi.connect(ssid, senha)
-  # Aguarda a conexão
-  while not wifi.is_connected():
-    time.sleep(1)
-    print(".", end="")
-
-  print("Conectado à rede Wi-Fi:", ssid)
+  wifi.connect('Wokwi-GUEST', '')
+  while not wifi.isconnected():
+   print(".", end="")
+   time.sleep(0.1)
+  print("Conectado ao Wifi!")
+  print("SSID: ", ssid)
+  print("Endereco IP: ", wifi.ifconfig()[0])
 
 def checar_conexao():
   """
-   Verifica se o ESP32 está conectado à rede Wi-Fi.
+   Checa se o ESP32 está conectado à rede Wi-Fi.
   """
   wifi = network.WLAN(network.STA_IF)
-  return wifi.is_connected()
-
+  return wifi.isconnected()
+  
 def ler_temperatura():
   """
    Lê a temperatura do sensor DS18B20 e retorna o valor em Celsius.
@@ -64,10 +62,8 @@ def ler_temperatura():
 conectar_wifi(ssid, senha)
 
 while True:
-  while not checar_conexao():
-    print("Reconectando à rede Wi-Fi...")
-    conectar_wifi(ssid, senha)
-    time.sleep(1)
+  if not checar_conexao():
+    conectar_wifi(ssid, senha)  
   # Lê a temperatura a cada 2 segundos
   temperatura = ler_temperatura()
   # Você pode usar o valor da temperatura aqui (e.g., imprimir na serial, enviar para servidor)
