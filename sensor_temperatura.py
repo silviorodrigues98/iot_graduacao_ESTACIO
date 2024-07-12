@@ -64,7 +64,7 @@ def ler_temperatura():
 conectar_wifi(ssid, senha)
 
 while True:
-  if not checar_conexao():
+  while not checar_conexao():
     print("Reconectando à rede Wi-Fi...")
     conectar_wifi(ssid, senha)
     time.sleep(1)
