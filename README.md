@@ -7,6 +7,7 @@ Este projeto é um sistema de monitoramento de temperatura utilizando um ESP32 e
 
 - [Monitoramento de Temperatura IoT com ESP32 e DS18B20](#monitoramento-de-temperatura-iot-com-esp32-e-ds18b20)
   - [Sumário](#sumário)
+  - [Simulação](#simulação)
   - [Visão Geral](#visão-geral)
   - [Requisitos](#requisitos)
   - [Instalação](#instalação)
@@ -14,6 +15,10 @@ Este projeto é um sistema de monitoramento de temperatura utilizando um ESP32 e
   - [Uso](#uso)
   - [Contribuição](#contribuição)
   - [Licença](#licença)
+
+## Simulação
+
+- https://wokwi.com/projects/403225545754858497
 
 ## Visão Geral
 
