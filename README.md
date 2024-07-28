@@ -35,7 +35,7 @@ O projeto foi desenvolvido para monitorar a temperatura de ambientes utilizando 
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/silviorodrigues98/iot_graduacao_ESTACIO.git
    ```
 2. Faça o upload do código para o ESP32 usando uma ferramenta como o [Thonny](https://thonny.org/) ou [ampy](https://github.com/scientifichackers/ampy).
 
