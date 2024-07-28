@@ -13,6 +13,10 @@
             padding: 0;
             background: linear-gradient(to right, #b3e5fc, #c8e6c9);
             overflow: hidden;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
 
         #container {
@@ -35,6 +39,10 @@
             color: #333;
             font-size: 6em;
         }
+
+        label {
+            font-size: 6em;
+        }
     </style>
 </head>
 
@@ -42,8 +50,24 @@
     <div id="container">
         <h1>MONITORAMENTO DE TEMPERATURA IOT</h1>
         <h2>Temperatura Atual</h2>
-        <span>🌡28ºC</span>
+        <label for="temperatura">🌡</label>
+        <span id="temperatura"></span>
     </div>
 </body>
+<script>
+    const temperaturaSpan = document.querySelector('#temperatura');
+    const minTemp = 18;
+    const maxTemp = 23;
+    const intervaloDeAtualizacaoMs = 5000;
+
+    const gerarTemperaturaTeste = () => {
+        const casaDecimal = (Math.floor(Math.random() * 100));
+        const temperatura = (Math.floor(Math.random() * (maxTemp - minTemp + 1)) + minTemp);
+        temperaturaSpan.textContent = `${temperatura}.${casaDecimal}°C`;
+    };
+
+    gerarTemperaturaTeste();
+    setInterval(gerarTemperaturaTeste, intervaloDeAtualizacaoMs);
+</script>
 
 </html>
