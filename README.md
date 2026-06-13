@@ -1,73 +1,100 @@
+<!--
+  TEMPLATE: Academic Work
+  Use para: trabalhos de graduação (ESTACIO), atividades extensionistas
+-->
 
 # Monitoramento de Temperatura IoT com ESP32 e DS18B20
 
-Este projeto é um sistema de monitoramento de temperatura utilizando um ESP32 e um sensor DS18B20, que se conecta a uma rede Wi-Fi e exibe a temperatura em um servidor web. O servidor web mostra a temperatura atual em uma interface simples.
+![Estácio](https://img.shields.io/badge/Instituição-Estácio-0a6e1e)
+![4º Semestre](https://img.shields.io/badge/Semestre-4º-blue)
+![ESP32](https://img.shields.io/badge/Hardware-ESP32-red)
+![MicroPython](https://img.shields.io/badge/Linguagem-MicroPython-green)
+![DS18B20](https://img.shields.io/badge/Sensor-DS18B20-yellow)
 
-## Sumário
+> Sistema de monitoramento de temperatura utilizando um microcontrolador ESP32 e sensor DS18B20, com exibição dos dados em tempo real via servidor web embarcado. Projeto desenvolvido para a disciplina de **Cloud, IoT e Indústria 4.0** do curso de Análise e Desenvolvimento de Sistemas.
 
-- [Monitoramento de Temperatura IoT com ESP32 e DS18B20](#monitoramento-de-temperatura-iot-com-esp32-e-ds18b20)
-  - [Sumário](#sumário)
-  - [Simulação](#simulação)
-  - [Visão Geral](#visão-geral)
-  - [Requisitos](#requisitos)
-  - [Instalação](#instalação)
-  - [Configuração](#configuração)
-  - [Uso](#uso)
-  - [Contribuição](#contribuição)
-  - [Licença](#licença)
+---
 
-## Simulação
+## 🎯 Contexto Acadêmico
 
-- https://wokwi.com/projects/403225545754858497
+| Item | Detalhe |
+|------|---------|
+| **Instituição** | Universidade Estácio de Sá |
+| **Curso** | Análise e Desenvolvimento de Sistemas |
+| **Disciplina** | Cloud, IoT e Indústria 4.0 |
+| **Semestre** | 4º semestre |
+| **Ano** | 2024 |
 
-## Visão Geral
+---
 
-O projeto foi desenvolvido para monitorar a temperatura de ambientes utilizando um microcontrolador ESP32 e um sensor de temperatura DS18B20. Os dados de temperatura são lidos periodicamente e exibidos em uma página web acessível via Wi-Fi.
+## 📋 Objetivo
 
-## Requisitos
+Desenvolver um sistema de monitoramento de temperatura baseado em Internet das Coisas (IoT) utilizando um ESP32 e um sensor DS18B20. O sistema conecta-se a uma rede Wi-Fi, lê a temperatura ambiente periodicamente e disponibiliza os dados em uma interface web acessível de qualquer dispositivo conectado à mesma rede — aplicando na prática os conceitos de Cloud, IoT e Indústria 4.0.
 
-- [ESP32](https://www.espressif.com/en/products/socs/esp32)
-- [Sensor DS18B20](https://datasheets.maximintegrated.com/en/ds/DS18B20.pdf)
-- [MicroPython](https://micropython.org/)
-- [Biblioteca MicroWebSrv](https://github.com/jczic/MicroWebSrv)
+---
 
-## Instalação
+## 🛠️ Tecnologias Utilizadas
 
-1. Clone este repositório:
-   ```sh
-   git clone https://github.com/silviorodrigues98/iot_graduacao_ESTACIO.git
-   ```
-2. Faça o upload do código para o ESP32 usando uma ferramenta como o [Thonny](https://thonny.org/) ou [ampy](https://github.com/scientifichackers/ampy).
+- **ESP32** — microcontrolador com Wi-Fi integrado
+- **MicroPython** — firmware e linguagem de programação embarcada
+- **Sensor DS18B20** — sensor digital de temperatura (OneWire)
+- **MicroWebSrv** — servidor web embarcado para MicroPython
+- **Wi-Fi (Wokwi-GUEST)** — conectividade de rede
+- **Wokwi** — simulador online de circuitos IoT
 
-## Configuração
+---
 
-1. **Defina a rede Wi-Fi:**
-   No código, configure o SSID e a senha da sua rede Wi-Fi:
+## ⚙️ Como Executar
+
+```bash
+# Clone
+git clone https://github.com/silviorodrigues98/iot_graduacao_ESTACIO.git
+cd iot_graduacao_ESTACIO
+
+# Simulação online (recomendado)
+# Acesse: https://wokwi.com/projects/403225545754858497
+```
+
+### Configuração física (opcional)
+
+1. Faça o upload dos arquivos (`sensor_temperatura.py` e `page.html`) para o ESP32 usando [Thonny](https://thonny.org/) ou [ampy](https://github.com/scientifichackers/ampy).
+2. Edite as credenciais de rede no código:
    ```python
-   ssid = "Wokwi-GUEST"
-   password = ""
+   ssid = "sua_rede_wifi"
+   password = "sua_senha"
    ```
+3. Conecte o sensor DS18B20 ao pino GPIO 5 do ESP32.
+4. Acesse o servidor web pelo endereço IP exibido no console.
 
-2. **Defina o pino de dados do sensor:**
-   No código, configure o pino GPIO utilizado para conectar o sensor DS18B20:
-   ```python
-   data_pin = machine.Pin(5)
-   ```
+---
 
-## Uso
+## 📚 Conceitos Aplicados
 
-1. Conecte o ESP32 à rede Wi-Fi configurada.
-2. Acesse o servidor web do ESP32 pelo endereço IP fornecido na saída do console (geralmente `http://<endereço_ip_esp32>`).
-3. A interface web exibirá a temperatura atual lida pelo sensor DS18B20.
+- **Internet das Coisas (IoT)** — comunicação entre dispositivos físicos e a rede
+- **Sensoriamento digital** — leitura de temperatura via protocolo OneWire (DS18B20)
+- **Servidor web embarcado** — interface HTTP diretamente no microcontrolador
+- **Conectividade Wi-Fi** — integração do ESP32 a redes sem fio
+- **MicroPython** — implementação de lógica embarcada com Python
+- **Simulação de hardware** — prototipagem virtual com Wokwi
 
-## Contribuição
+---
 
-1. Faça um fork deste repositório.
-2. Crie um branch com a sua feature: `git checkout -b minha-feature`
-3. Commit suas mudanças: `git commit -m 'Adiciona minha feature'`
-4. Envie para o branch: `git push origin minha-feature`
-5. Abra um Pull Request
+## 🔗 Simulação
 
-## Licença
+Experimente o projeto online sem necessidade de hardware físico:
 
-Este projeto está licenciado sob a licença MIT
+<p align="center">
+  <a href="https://wokwi.com/projects/403225545754858497">
+    <img src="https://img.shields.io/badge/Simulação-Wokwi-1f7a1f?style=for-the-badge" alt="Simulação Wokwi">
+  </a>
+</p>
+
+---
+
+<p align="center">
+  Projeto acadêmico desenvolvido para a disciplina de Cloud, IoT e Indústria 4.0 — 4º semestre de Análise e Desenvolvimento de Sistemas
+</p>
+
+<p align="center">
+  <a href="https://github.com/silviorodrigues98">@silviorodrigues98</a>
+</p>
